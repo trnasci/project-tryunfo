@@ -27,6 +27,7 @@ class Form extends React.Component {
           value={ cardName }
           onChange={ onInputChange }
           id="name-input"
+          teste={ hasTrunfo }
         />
         <InputForm
           name="description"
