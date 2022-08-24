@@ -22,61 +22,68 @@ class Form extends React.Component {
     return (
       <form>
         <InputForm
-          name="name"
+          name="cardName"
           type="text"
           value={ cardName }
           onChange={ onInputChange }
           id="name-input"
           teste={ hasTrunfo }
+          labelName="Nome"
         />
         <InputForm
-          name="description"
+          name="cardDescription"
           type="textarea"
           value={ cardDescription }
           onChange={ onInputChange }
           id="description-input"
+          labelName="Descrição"
         />
         <InputForm
-          name="attr1"
+          name="cardAttr1"
           type="number"
           value={ cardAttr1 }
           onChange={ onInputChange }
           id="attr1-input"
+          labelName="Atributo 1"
         />
         <InputForm
-          name="attr2"
+          name="cardAttr2"
           type="number"
           value={ cardAttr2 }
           onChange={ onInputChange }
           id="attr2-input"
+          labelName="Atributo 2"
         />
         <InputForm
-          name="attr3"
+          name="cardAttr3"
           type="number"
           value={ cardAttr3 }
           onChange={ onInputChange }
           id="attr3-input"
+          labelName="Atributo 3"
         />
         <InputForm
-          name="image"
+          name="cardImage"
           type="text"
           value={ cardImage }
           onChange={ onInputChange }
           id="image-input"
+          labelName="Imagem"
         />
         <SelectForm
-          name="select"
+          name="cardRare"
           onChange={ onInputChange }
           value={ cardRare }
           id="rare-input"
         />
         <InputCheckForm
-          name="trunfo-input"
+          name="cardTrunfo"
           type="checkbox"
           checked={ cardTrunfo }
-          value=""
+          value={ cardTrunfo }
           onChange={ onInputChange }
           id="trunfo-input"
+          labelName="Super Trunfo"
         />
         <button
           data-testid="save-button"

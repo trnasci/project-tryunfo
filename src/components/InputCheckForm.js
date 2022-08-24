@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 class InputCheckForm extends React.Component {
   render() {
-    const { name, type, value, onChange, id, checked } = this.props;
+    const { name, type, onChange, id, checked, labelName } = this.props;
     return (
       <label htmlFor={ name }>
-        { name }
+        { labelName }
         <input
           name={ name }
           type={ type }
-          value={ value }
+          value={ checked }
           onChange={ onChange }
           id={ id }
           data-testid={ id }
@@ -24,9 +24,9 @@ InputCheckForm.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  checked: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  labelName: PropTypes.string.isRequired,
 };
 
 export default InputCheckForm;
