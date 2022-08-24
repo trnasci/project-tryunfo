@@ -19,6 +19,21 @@ class Form extends React.Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+    function checkTrunfo() {
+      if (hasTrunfo === false) {
+        return (<InputCheckForm
+          name="cardTrunfo"
+          type="checkbox"
+          checked={ cardTrunfo }
+          value={ cardTrunfo }
+          onChange={ onInputChange }
+          id="trunfo-input"
+          labelName="Super Trunfo"
+        />);
+      }
+      return <p>Você já tem um Super Trunfo em seu baralho</p>;
+    }
+
     return (
       <form>
         <InputForm
@@ -27,7 +42,6 @@ class Form extends React.Component {
           value={ cardName }
           onChange={ onInputChange }
           id="name-input"
-          teste={ hasTrunfo }
           labelName="Nome"
         />
         <InputForm
@@ -76,15 +90,7 @@ class Form extends React.Component {
           value={ cardRare }
           id="rare-input"
         />
-        <InputCheckForm
-          name="cardTrunfo"
-          type="checkbox"
-          checked={ cardTrunfo }
-          value={ cardTrunfo }
-          onChange={ onInputChange }
-          id="trunfo-input"
-          labelName="Super Trunfo"
-        />
+        { checkTrunfo() }
         <button
           data-testid="save-button"
           type="button"
