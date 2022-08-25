@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Card extends React.Component {
+class CardSave extends React.Component {
   render() {
     const { cardName,
       cardDescription,
@@ -11,6 +11,7 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      onDeleteButton,
     } = this.props;
 
     function trunfoCard() {
@@ -42,13 +43,20 @@ class Card extends React.Component {
           { cardRare }
         </div>
         { trunfoCard() }
-
+        <button
+          name={ cardName }
+          data-testid="delete-button"
+          type="button"
+          onClick={ onDeleteButton }
+        >
+          Excluir
+        </button>
       </div>
     );
   }
 }
 
-Card.propTypes = {
+CardSave.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
   cardAttr1: PropTypes.string.isRequired,
@@ -57,6 +65,7 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  onDeleteButton: PropTypes.func.isRequired,
 };
 
-export default Card;
+export default CardSave;

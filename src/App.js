@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './components/Card';
+import CardSave from './components/CardSave';
 import Form from './components/Form';
 
 class App extends React.Component {
@@ -44,18 +45,31 @@ class App extends React.Component {
   };
 
   onSaveButtonClick = (objInfo) => {
+    const { cardTrunfo } = this.state;
     this.setState((state) => ({
       data: [...state.data, objInfo],
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: '',
-      hasTrunfo: state.cardTrunfo,
+      cardRare: '',
+      cardTrunfo: false,
+      hasTrunfo: cardTrunfo,
+      isSaveButtonDisabled: true,
     }));
+  };
+
+  onDeleteButton = (event) => {
+    const { target } = event;
+    const { name } = target;
+    const { data } = this.state;
+    const filterData = data.filter((ele) => ele.cardName !== name);
+    this.setState({ data: filterData }, () => {
+      const ver = filterData.some((ele) => ele.cardTrunfo === true);
+      this.setState({ hasTrunfo: ver });
+    });
   };
 
   render() {
@@ -100,7 +114,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         { data.map((element) => (
-          <Card
+          <CardSave
             cardName={ element.cardName }
             cardDescription={ element.cardDescription }
             cardAttr1={ element.cardAttr1 }
@@ -110,6 +124,7 @@ class App extends React.Component {
             cardRare={ element.cardRare }
             cardTrunfo={ element.cardTrunfo }
             key={ element.cardName }
+            onDeleteButton={ this.onDeleteButton }
           />))}
       </div>
     );
