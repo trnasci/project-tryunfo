@@ -21,7 +21,7 @@ class Card extends React.Component {
     }
 
     return (
-      <div>
+      <div className="card-preview">
         <div data-testid="name-card">
           { cardName }
         </div>

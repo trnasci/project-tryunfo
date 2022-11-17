@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import InputForm from './InputForm';
 import SelectForm from './SelectForm';
 import InputCheckForm from './InputCheckForm';
+import './Form.css';
 
 class Form extends React.Component {
   render() {
@@ -35,7 +36,7 @@ class Form extends React.Component {
     }
 
     return (
-      <form>
+      <form className="form">
         <InputForm
           name="cardName"
           type="text"
